@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>Interact2Hack — Descubrimiento & prototipo | Avance 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">I2H</div>
+          <div>
+            <strong>Interact2Hack</strong>
+            <small>PRODUCT DISCOVERY</small>
+          </div>
+        </div>
+
+        <div class="section-small">Navegación</div>
+
+        <nav class="nav-stack" aria-label="Secciones">
+          <button class="nav-btn active" data-view="overview">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+            Resumen
+          </button>
+
+          <button class="nav-btn" data-view="questions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M9.5 9a3 3 0 0 1 5 2c0 2-2.5 2.2-2.5 4M12 18h.01" />
+            </svg>
+            Preguntas al cliente <b>31</b>
+          </button>
+
+          <button class="nav-btn" data-view="keys">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m12 2 3 6.5L22 9.5l-5 5 1.2 7.5-6.2-3.5L5.8 22 7 14.5l-5-5 7-1z" />
+            </svg>
+            3 preguntas clave
+          </button>
+
+          <button class="nav-btn" data-view="prototype">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <path d="M3 9h18" />
+            </svg>
+            Prototipo de app
+          </button>
+        </nav>
+
+        <div class="side-bottom">
+          <div class="side-note">
+            <strong>Avance 1 · Descubrimiento</strong>
+            Documento previo al PRD. Los supuestos no son requisitos confirmados.
+          </div>
+          <div class="side-foot">11 nov 2026 · Versión para reunión</div>
+        </div>
+      </aside>
+
+      <div class="content">
+        <header class="topbar">
+          <div class="crumb">
+            PROYECTO FINAL
+            <span style="margin: 0 8px; color: #d1d5e3">/</span>
+            <b>Interact2Hack · Avance 1</b>
+          </div>
+          <div class="top-actions">
+            <span class="tiny-pill">BORRADOR PARA VALIDACIÓN</span>
+            <button class="btn small" onclick="showView('questions')">Ver preguntas</button>
+          </div>
+        </header>
+
+        <main class="main">
+          <!-- RESUMEN -->
+          <section id="view-overview" class="view active">
+            <div class="hero">
+              <div class="hero-content">
+                <div class="tag">✦ AVANCE 1 · ENTENDIMIENTO DEL PROBLEMA</div>
+                <h1>Coordinar mejor.<br /><span>Preguntar primero.</span></h1>
+                <p>
+                  Un documento de descubrimiento para construir la herramienta de staff de Interact2Hack sin inventar
+                  requisitos.
+                </p>
+                <div class="hero-actions">
+                  <button class="btn primary" onclick="showView('questions')">Explorar las 31 preguntas ↗</button>
+                  <button class="btn ghost" onclick="showView('prototype')">Ver prototipo visual</button>
+                </div>
+              </div>
+              <div class="hero-numbers">
+                <div>
+                  <strong>01</strong>
+                  <small>AVANCE</small>
+                </div>
+                <div>
+                  <strong>23 NOV</strong>
+                  <small>PRD SIGUIENTE</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="stat-label"><i class="stat-dot"></i>PREGUNTAS REFINADAS</div>
+                <span class="stat-number">31</span>
+                <span class="stat-footer">Decisiones para validar</span>
+              </div>
+              <div class="stat">
+                <div class="stat-label"><i class="stat-dot"></i>TEMAS CUBIERTOS</div>
+                <span class="stat-number">11</span>
+                <span class="stat-footer">Más de los 5 requeridos</span>
+              </div>
+              <div class="stat">
+                <div class="stat-label"><i class="stat-dot"></i>PREGUNTAS CLAVE</div>
+                <span class="stat-number">03</span>
+                <span class="stat-footer">Para iniciar la reunión</span>
+              </div>
+              <div class="stat">
+                <div class="stat-label"><i class="stat-dot"></i>RESPUESTAS</div>
+                <span class="stat-number" id="responseCount">0 / 31</span>
+                <span class="stat-footer">Se llenan con el cliente</span>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="panel">
+                <div class="eyebrow">01 / LO QUE ENTENDIMOS</div>
+                <h3>¿Qué problema resolvemos?</h3>
+                <p class="lead-text" id="intro-text"></p>
+                <div class="pill-line">
+                  <span class="chip">Administradores</span>
+                  <span class="chip mint">Estudiantes</span>
+                  <span class="chip amber">Checklist</span>
+                  <span class="chip grey">Seguimiento</span>
+                </div>
+              </div>
+
+              <div class="panel">
+                <div class="eyebrow">RUTA DE TRABAJO</div>
+                <h3>Antes de programar</h3>
+                <div class="timeline">
+                  <div class="time-row">
+                    <div class="time-circle">1</div>
+                    <div>
+                      <strong>Entendimiento y preguntas</strong>
+                      <p>Identificar decisiones todavía abiertas.</p>
+                    </div>
+                  </div>
+                  <div class="time-row">
+                    <div class="time-circle">2</div>
+                    <div>
+                      <strong>Sesión con el cliente</strong>
+                      <p>Registrar respuestas con sus palabras.</p>
+                    </div>
+                  </div>
+                  <div class="time-row">
+                    <div class="time-circle">3</div>
+                    <div>
+                      <strong>PRD · 23 de noviembre</strong>
+                      <p>Transformar decisiones en requisitos validados.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="warning">
+              <span style="font-size: 22px">⚠</span>
+              <div>
+                <b>Atención: datos y comportamientos provisionales.</b>
+                Las respuestas del cliente deben quedar vacías antes de la reunión. Los supuestos se documentan, pero no
+                se convierten automáticamente en requisitos.
+              </div>
+            </div>
+          </section>
+
+          <!-- PREGUNTAS -->
+          <section id="view-questions" class="view">
+            <div class="eyebrow">02 / PREGUNTAS PARA EL CLIENTE</div>
+            <h2 class="page-title">31 decisiones por resolver.</h2>
+            <p class="page-desc">
+              Preguntas concretas, separadas por decisión, con su justificación, supuesto y prioridad. Escribe las
+              respuestas literales del cliente durante la sesión; se guardan solo en este navegador.
+            </p>
+
+            <div class="question-toolbar">
+              <input
+                id="search"
+                type="search"
+                placeholder="Buscar por ID, tema o pregunta..."
+                aria-label="Buscar preguntas"
+              />
+
+              <select id="topicFilter" aria-label="Filtrar por tema">
+                <option value="">Todos los temas</option>
+              </select>
+
+              <select id="priorityFilter" aria-label="Filtrar por prioridad">
+                <option value="">Todas las prioridades</option>
+                <option>Alta</option>
+                <option>Media</option>
+                <option>Baja</option>
+              </select>
+
+              <div class="switcher" aria-label="Vista de preguntas">
+                <button id="cardsBtn" class="selected" onclick="setQuestionMode('cards')">Tarjetas</button>
+                <button id="tableBtn" onclick="setQuestionMode('table')">Tabla</button>
+              </div>
+            </div>
+
+            <div class="list-head">
+              <span id="resultsCount">31 preguntas</span>
+              <span>
+                <button class="btn small" onclick="exportCSV()">Exportar CSV ↗</button>
+              </span>
+            </div>
+
+            <div id="questionList"></div>
+
+            <p class="footer-note">
+              Las respuestas comienzan en blanco. Los supuestos están pendientes de confirmación y deberán marcarse como
+              [SUPUESTO] si llegan al PRD sin una decisión del cliente.
+            </p>
+          </section>
+
+          <!-- TRES PREGUNTAS CLAVE -->
+          <section id="view-keys" class="view">
+            <div class="eyebrow">03 / ORDEN PARA LA REUNIÓN</div>
+            <h2 class="page-title">Las tres primeras preguntas.</h2>
+            <p class="page-desc">
+              Son las que más decisiones arrastran. Conviene formularlas primero y adaptar el resto a las respuestas del
+              cliente.
+            </p>
+
+            <div class="key-grid" id="keyCards"></div>
+
+            <div class="panel">
+              <div class="eyebrow">CONSEJO PARA LA SESIÓN</div>
+              <h3>Escucha la decisión, no la tecnología.</h3>
+              <p class="lead-text">
+                Si el cliente responde «lo que ustedes decidan», registra esa frase y conserva el supuesto como
+                pendiente. Si otro equipo ya preguntó lo mismo, toma nota y pasa a un caso límite que todavía no esté
+                resuelto.
+              </p>
+            </div>
+          </section>
+
+          <!-- PROTOTIPO -->
+          <section id="view-prototype" class="view">
+            <div class="eyebrow">04 / PROPUESTA VISUAL NO VALIDADA</div>
+            <h2 class="page-title">Así podría sentirse la plataforma.</h2>
+            <p class="page-desc">
+              Prototipo interactivo para discutir flujos y pantallas. Cambia de rol, marca pasos y prueba la
+              confirmación; son comportamientos simulados, no requisitos aprobados.
+            </p>
+
+            <div class="proto-banner">
+              ✦ <strong>Demo conceptual:</strong> nombres, tareas, porcentajes, reglas de cierre y paneles son ejemplos
+              de diseño. Se ajustarán cuando el cliente responda.
+            </div>
+
+            <div class="proto-shell">
+              <div class="proto-top">
+                <div>
+                  <div class="proto-brand">interact<span>2</span>hack</div>
+                  <small>Staff operations · Vista de ejemplo</small>
+                </div>
+                <div class="segment">
+                  <button id="adminRole" class="sel" onclick="setRole('admin')">Administrador</button>
+                  <button id="studentRole" onclick="setRole('student')">Estudiante</button>
+                </div>
+              </div>
+
+              <div class="proto-body" id="demoArea"></div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
